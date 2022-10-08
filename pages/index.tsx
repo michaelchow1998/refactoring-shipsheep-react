@@ -1,12 +1,13 @@
 import type { NextPage } from "next";
-import Head from "next/head";
-import Image from "next/image";
-import styles from "../styles/Home.module.css";
-
+import { useAuth, AuthContextType } from "../context/AuthContext";
+import NavBar from "../components/NavBar";
 const Home: NextPage = () => {
+  const user: AuthContextType = useAuth();
+
   return (
     <div>
-      <h1 className="bg-yellow-400">Hello</h1>
+      <NavBar />
+      <h1 className="bg-yellow-400">{user.userType}</h1>
     </div>
   );
 };
