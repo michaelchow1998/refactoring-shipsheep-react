@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Disclosure } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
-import { useAuth, AuthContextType } from "../context/AuthContext";
+import { useAuth, AuthContextType } from "../../context/AuthContext";
 import Link from "next/link";
 
 const initNavigation = [
