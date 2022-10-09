@@ -1,17 +1,16 @@
 import { AuthContext, AuthContextDefault } from "./AuthContext";
+import { LanguageContext } from "./LanguageContext";
 
-import React, { useState } from "react";
-
-function ContextLayer({ children }: any) {
-  const [authContext, setAuthContext] = useState(AuthContextDefault);
-
+export const ContextLayer = ({ children }: any) => {
   return (
     <>
       <AuthContext.Provider value={authContext}>
-        {children}
+        <LanguageContext.Provider value={lanType}>
+          {children}
+        </LanguageContext.Provider>
       </AuthContext.Provider>
     </>
   );
-}
+};
 
 export default ContextLayer;

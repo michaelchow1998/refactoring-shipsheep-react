@@ -1,14 +1,7 @@
 import { createContext, useContext } from "react";
+import { en } from "../languages/en";
 
-export type LanguageContextType = {
-  selectedLanguage: string;
-};
-
-export const LanguageContextDefault: LanguageContextType = {
-  selectedLanguage: "en",
-};
-
-export const LanguageContext = createContext(LanguageContextDefault);
+export const LanguageContext = createContext(en);
 
 export const useLanguage = () => {
   return useContext(LanguageContext);

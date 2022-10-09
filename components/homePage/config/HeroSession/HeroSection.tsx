@@ -1,10 +1,13 @@
 import Link from "next/link";
-import { AuthContextType, useAuth } from "../../../../context/AuthContext";
+import { useAuth, AuthContextType } from "../../../../context/AuthContext";
+import { useLanguage } from "../../../../context/LanguageContext";
+
 import hero from "../../images/hero.jpg";
 
 export default function HeroSection() {
   const { isLogin }: AuthContextType = useAuth();
-
+  const { selectedLanguage }: any = useLanguage();
+  const lan = selectedLanguage.heroSection;
   return (
     <div className="relative overflow-hidden bg-white">
       <div className="mx-auto max-w-7xl">
@@ -22,7 +25,7 @@ export default function HeroSection() {
           <main className="mx-auto mt-10 max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
             <div className="sm:text-center lg:text-left">
               <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
-                <span className="block xl:inline">Let ShipSheep take</span>{" "}
+                <span className="block xl:inline">{lan.mainHeader}</span>{" "}
                 <span className="block text-indigo-600 sm:pt-2 xl:inline">
                   part in your life
                 </span>
