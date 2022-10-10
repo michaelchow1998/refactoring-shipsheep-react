@@ -1,18 +1,17 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext } from "react";
 
-export type AuthContextType = {
+export type AuthUser = {
   isLogin: boolean;
   currentUser: string;
   userType: number;
 };
 
-export const AuthContextDefault: AuthContextType = {
-  isLogin: false,
-  currentUser: "",
-  userType: 0,
+export type AuthContextType = {
+  user: AuthUser | null;
+  setUser: React.Dispatch<React.SetStateAction<AuthUser | null>>;
 };
 
-export const AuthContext = createContext(AuthContextDefault);
+export const AuthContext = createContext<AuthContextType | null>(null);
 
 export const useAuth = () => {
   return useContext(AuthContext);
