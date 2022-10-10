@@ -1,13 +1,14 @@
 import Link from "next/link";
-import { useAuth, AuthContextType } from "../../../../context/AuthContext";
-import { useLanguage } from "../../../../context/LanguageContext";
+import { useContext } from "react";
+import { AuthContext, AuthUser } from "../../../../context/AuthContext";
+import { LanguageContext } from "../../../../context/LanguageContext";
 
 import hero from "../../images/hero.jpg";
 
 export default function HeroSection() {
-  const { isLogin }: AuthContextType = useAuth();
-  const { selectedLanguage }: any = useLanguage();
-  const lan = selectedLanguage.heroSection;
+  const { isLogin } = useContext(AuthContext)?.user;
+  const { heroSection } = useContext(LanguageContext)?.lan;
+
   return (
     <div className="relative overflow-hidden bg-white">
       <div className="mx-auto max-w-7xl">
@@ -25,20 +26,21 @@ export default function HeroSection() {
           <main className="mx-auto mt-10 max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
             <div className="sm:text-center lg:text-left">
               <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
-                <span className="block xl:inline">{lan.mainHeader}</span>{" "}
+                <span className="block xl:inline">
+                  {heroSection.mainHeader}
+                </span>{" "}
                 <span className="block text-indigo-600 sm:pt-2 xl:inline">
-                  part in your life
+                  {heroSection.secondHeader}
                 </span>
               </h1>
               <p className="mt-3 text-base text-gray-500 sm:mx-auto sm:mt-5 sm:max-w-xl sm:text-lg md:mt-5 md:text-xl lg:mx-0">
-                One-stop logistics service. Probably the fastest logistics
-                company in the world. Use our services, never disappoint you.
+                {heroSection.slogan}
               </p>
               <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                 <div className="rounded-md shadow">
                   {!isLogin && (
                     <button className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 md:py-4 md:px-10 md:text-lg">
-                      <Link href="/login">Login</Link>
+                      <Link href="/login">{heroSection.login}</Link>
                     </button>
                   )}
                 </div>
@@ -47,7 +49,9 @@ export default function HeroSection() {
                     className={`flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-100 
                     px-8 py-3 text-base font-medium text-indigo-700 hover:bg-indigo-200 md:py-4 md:px-10 md:text-lg`}
                   >
-                    <Link href="/locations">Locations Support</Link>
+                    <Link href="/locations">
+                      <>{heroSection.locations}</>
+                    </Link>
                   </button>
                 </div>
               </div>

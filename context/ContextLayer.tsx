@@ -4,13 +4,18 @@ import { AuthContext, AuthUser } from "./AuthContext";
 
 import { LanguageContext } from "./LanguageContext";
 import { en } from "../languages/en";
+import { ch } from "../languages/ch";
 
 import { ThemeContext, Theme } from "./ThemeContext";
 
 export const ContextLayer = ({ children }: any) => {
-  const [user, setUser] = useState<AuthUser | null>(null);
+  const [user, setUser] = useState<AuthUser | null>({
+    isLogin: false,
+    currentUser: "",
+    userType: 0,
+  });
   const [lan, setLan] = useState<any | null>(en);
-  const [theme, setTheme] = useState<Theme | null>(null);
+  const [theme, setTheme] = useState<Theme | null>({ isDark: false });
 
   return (
     <>

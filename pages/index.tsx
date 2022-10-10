@@ -9,8 +9,6 @@ import FeatureSession from "../components/homePage/config/FeatureSession/Feature
 import LogoClouds from "../components/homePage/config/LogoCloud/LogoClouds";
 
 const Home: NextPage = () => {
-  const user: AuthContextType = useAuth();
-
   return (
     <div>
       <NavBar />

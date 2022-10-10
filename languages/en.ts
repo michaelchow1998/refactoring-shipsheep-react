@@ -6,6 +6,7 @@ import {
 } from "@heroicons/react/outline";
 
 export const en = {
+  isEN: true,
   // heroSection
   heroSection: {
     mainHeader: "Let ShipSheep take",
@@ -14,7 +15,7 @@ export const en = {
       "One-stop logistics service. Probably the fastest logistics " +
       "company in the world. Use our services, never disappoint you.",
     login: "Login",
-    Locations: "Locations Support",
+    locations: "Locations Support",
   },
 
   //featureSession

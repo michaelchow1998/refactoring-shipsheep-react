@@ -1,6 +1,7 @@
-import { features } from "./features";
+import { useLanguage } from "../../../../context/LanguageContext";
 
 export default function FeatureSession() {
+  const { featureSession } = useLanguage()?.lan;
   return (
     <div className="bg-gray-200 py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -9,17 +10,16 @@ export default function FeatureSession() {
             ShipSheep
           </h2>
           <p className="mt-2 text-3xl font-extrabold leading-8 tracking-tight text-gray-900 sm:text-4xl">
-            A better way to shipping items
+            {featureSession.mainHeader}
           </p>
           <p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-            Deliver your items with a professional streamlined team structure,
-            Make sure every item arrives in perfect condition.
+            {featureSession.slogan}
           </p>
         </div>
 
         <div className="mt-10">
           <dl className="space-y-10 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10 md:space-y-0">
-            {features.map((feature) => (
+            {featureSession.features.map((feature: any) => (
               <div key={feature.name} className="relative">
                 <dt>
                   <div className="absolute flex h-12 w-12 items-center justify-center rounded-md bg-indigo-500 text-white">

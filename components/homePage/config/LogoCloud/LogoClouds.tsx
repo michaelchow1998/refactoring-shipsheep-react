@@ -1,10 +1,14 @@
+import { useLanguage } from "../../../../context/LanguageContext";
+
 /* This example requires Tailwind CSS v2.0+ */
 export default function LogoClouds() {
+  const { LogoClouds } = useLanguage()?.lan;
+
   return (
     <div className="bg-indigo-700">
       <div className="mx-auto max-w-7xl py-16 px-4 sm:py-20 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-extrabold text-white">
-          The world's most innovative companies use ShipSheep
+          {LogoClouds.mainHeader}
         </h2>
         <div className="mt-8 flow-root lg:mt-10">
           <div className="-mt-4 -ml-8 flex flex-wrap justify-between lg:-ml-4">

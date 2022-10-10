@@ -1,9 +1,7 @@
 import React, { createContext, useContext } from "react";
 
 export type Theme = {
-  isLogin: boolean;
-  currentUser: string;
-  userType: number;
+  isDark: boolean;
 };
 
 export type ThemeContextType = {
